@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ul {
+            padding-left: 18px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: 0.2s ease;
+}
+
+.navbar a:hover {
+    background: #e3f2fd;
+}
+    
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Your Profile 👤</h2>
+
+    <div class="section">
+        <h3>📊 Your Progress</h3>
+        <p>{{ user_progress }}</p>
+    </div>
+
+    <div class="section">
+        <h3>📚 Recommended Books</h3>
+        <ul>
+            {% for book in recommendations %}
+                <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/books">⬅ Back to Books</a>
+</div>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/books">View Books</a>
+    <a href="/quiz_profile">Profile Quiz</a>
+    <a href="/quiz_feedback">Feedback Quiz</a>
+</div>
+</body>
+</html>

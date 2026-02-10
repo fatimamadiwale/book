@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Background image */
+            background-image: url("/static/books.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            z-index: -1;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.4);   /* glass effect */
+            backdrop-filter: blur(8px);
+            padding: 35px;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1565c0;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.2s ease;
+        }
+
+        a:hover {
+            background: rgba(21, 101, 192, 0.1);
+        }
+
+        /* Navbar like login page */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background: #e3f2fd;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/books">View Books</a>
+    <a href="/quiz_profile">Profile Quiz</a>
+    <a href="/quiz_feedback">Feedback Quiz</a>
+</div>
+
+<div class="container">
+    <h2>Books List 📖</h2>
+
+    {% for book in books %}
+        <p>{{ book.title }} — {{ book.author }}</p>
+    {% endfor %}
+
+    <a href="/add_book">➕ Add New Book</a>
+    <a href="/">🏠 Home</a>
+</div>
+
+</body>
+</html>
